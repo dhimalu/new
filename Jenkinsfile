@@ -7,7 +7,7 @@ node {
 	  dockerimage = docker.build "jrv:$BUILD_NUMBER" 
     }
 	 stage('LogingECR') {
-        aws ecr get-login-password | docker login -u AWS --password-stdin "590907222558.dkr.ecr.us-east-1.amazonaws.com"
+        sh 'aws ecr get-login-password | docker login -u AWS --password-stdin 590907222558.dkr.ecr.us-east-1.amazonaws.com'
     }
     stage('PushtoECR') {
        docker.withRegistry('https://590907222558.dkr.ecr.us-east-1.amazonaws.com/new') {            
