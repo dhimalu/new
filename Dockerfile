@@ -7,3 +7,4 @@ RUN apt-get install apache2 libapache2-mod-php7.4 php7.4-gd php7.4-mysql php7.4-
 COPY . /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 EXPOSE 80
+CMD ["/usr/sbin/apache2", "-D",  "FOREGROUND"]
